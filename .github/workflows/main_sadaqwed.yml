@@ -22,15 +22,15 @@ jobs:
     - name: Log in to registry
       uses: docker/login-action@v1
       with:
-        registry: https://azure/
-        username: ${{ secrets.AzureAppService_ContainerUsername_8494808b8e2f4c6e8cd48ef0c546021f }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_1efb2ce3e0414ad48d7447bd0e6f1393 }}
+        registry: https://www.powertyp.com//
+        username: ${{ secrets.AzureAppService_ContainerUsername_6fd809bb219149ec8aa58ac710343460 }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_e13e823a403f47f59e3600b35b63c7a0 }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: azure/${{ secrets.AzureAppService_ContainerUsername_8494808b8e2f4c6e8cd48ef0c546021f }}/fdsfs:${{ github.sha }}
+        tags: www.powertyp.com//${{ secrets.AzureAppService_ContainerUsername_6fd809bb219149ec8aa58ac710343460 }}/mcr.microsoft.com/appsvc/staticsite:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -47,5 +47,5 @@ jobs:
       with:
         app-name: 'sadaqwed'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_97ebf7f8cd5f447da3ad928c6fe78bae }}
-        images: 'azure/${{ secrets.AzureAppService_ContainerUsername_8494808b8e2f4c6e8cd48ef0c546021f }}/fdsfs:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_abc6cfb55af8467e9912d0bd971d5562 }}
+        images: 'www.powertyp.com//${{ secrets.AzureAppService_ContainerUsername_6fd809bb219149ec8aa58ac710343460 }}/mcr.microsoft.com/appsvc/staticsite:${{ github.sha }}'
